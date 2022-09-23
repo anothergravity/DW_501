@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .body{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        margin: 30px auto;
+        width: 90%;
+        height: 500px;
+    }
+    .title h1{
+        text-align: center;
+        padding: 50px;
+    }
+    .row{
+        display: flex;
+        justify-content: space-between; /* space-around */
+    }
+    .item{
+        border-radius: 10px;
+        background-color: blanchedalmond;
+        padding: 2% 6%;
+        color: aqua;
+        text-align: center;
+    }
+    .item p{
+        font-size: 22px;
+    }
+    .item h2{
+        font-size: 44px;
+        font-weight: 500;
+        margin: 20px 0 40px;
+    }
+    .item h2 span{
+        font-size: 18px;
+    }
+    .item ul{
+        text-align: left;
+        margin: 20px 0;
+        color: aquamarine;
+    }
+    .item ul li{
+        margin: 15px 0;
+    }
+    /* 
+        ** margin은 auto가 있지만 padding은 auto가 없다.
+        padding & margin: 10px (동,서,남, 북)
+        padding & margin: 10px(위&아래) 10px(오른쪽&왼쪽)
+        padding & margin: 10px(위) 10px(오른쪽&왼쪽) 10px(아래)
+        padding & margin: 10px(위) 10px(오른쪽) 10px(아래) 10px(왼쪽)
+        
+        padding-top : 10px
+        padding-bottom : 10px
+        padding-left : 10px
+        padding-right : 10px
+
+    문제1) margin : 10px 20px 30px;
+    => margin-top 10px
+       margin-right 20px
+       margin-left 20px
+       margin-bottom 30px
+    */
+    .item button{
+        background: transparent;
+        width: 100%;
+        padding: 14px;
+        color: black;
+        font-size: 15px;
+        border: 1px solid red;
+        border-radius: 5px;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+    .item button:hover{
+        background-color: brown;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>choose your plan</h1>
+        </div>
+        <div class="row">
+            <div class="item">
+                <p>starter</p>
+                <h2>19$<span>/month</span></h2>
+                <ul>
+                    <li>1 website</li>
+                    <li>2 Gb disk space</li>
+                    <li>free email address</li>
+                    <li>basic web builder</li>
+                    <li>no ssl certificate</li>
+                    <li>Limited support</li>
+                </ul>
+                <button>add to cart</button>
+            </div>
+            <div class="item">
+                <p>starter</p>
+                <h2>19$<span>/month</span></h2>
+                <ul>
+                    <li>1 website</li>
+                    <li>2 Gb disk space</li>
+                    <li>free email address</li>
+                    <li>basic web builder</li>
+                    <li>no ssl certificate</li>
+                    <li>Limited support</li>
+                </ul>
+                <button>add to cart</button>
+            </div>
+            <div class="item">
+                <p>starter</p>
+                <h2>19$<span>/month</span></h2>
+                <ul>
+                    <li>1 website</li>
+                    <li>2 Gb disk space</li>
+                    <li>free email address</li>
+                    <li>basic web builder</li>
+                    <li>no ssl certificate</li>
+                    <li>Limited support</li>
+                </ul>
+                <button>add to cart</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
