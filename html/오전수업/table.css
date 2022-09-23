@@ -1,0 +1,22 @@
+p{
+
+.animal img{
+    width:195px;
+    height:auto;
+}
+
+
+    font-size:20pt;
+   font-weight:700px;
+   text-shadow:5px 5px 5px yellow;
+}
+hr{
+    width:610px;
+    margin-left:0;
+}
+
+table tr td {
+   border:1px solid black;
+   width:200px;
+   height:300px;
+}
