@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+/*
+    for (var i=1; i<=20; i++){
+        var f=Math.floor(Math.random()* 100)+1;
+        if(f % 4==0)
+        document.write(f +"  ");
+    } //랜덤 
+*/
+/*
+    for (var i=1; i<=10; i++){
+        var a=Math.floor(Math.random()* 10)+1;
+        b = parseInt(prompt());
+        if(a===b){
+            document.write('지뢰 밞음 사망')
+        }else{
+            document.write('회피성공');
+        }
+        
+    }
+*/
+/*
+    for (var i = 1; i<=10; i++){
+        var num = 0;
+        do {
+            num = parseInt(prompt());
+        }   while (!(num >= 1 && num <=10));
+    
+        var r = Math.floor(Math.random() *10) + 1;
+        if(num ==r) document.write('지뢰 ...' + num + ':' + r + '<br>');
+        else document.write('피했다.' + num + ':' + r + '<br>');
+    }
+*/
+/*
+    for (var i=2; i<=9; i++){
+        for (var k = 1; k <=9; k++){
+            document.write(i + '*' + k + '=' + i * k+ '<br>');
+        }
+    }
+*/
+/*
+    for(var i = 1; i <= 5; i++){
+        for(var k =1; k <= 6 - i; k++){
+            document.write('*');
+        }
+        document.write('<br>');
+    }
+*/
+    for(var a=1; a<=9; a++){
+        for(var b=1; b<=9; b++){
+            for(var c=1; c<=9; c++){
+                for(var d=1; d<=9; d++){
+                    if(a!=b && a!=c && a!=d && b!=c && b!=d &&c!=d)
+                        if(a == c+7){
+                            if(b < d){
+                                var e = (a*1000) + (b*100) + (c*10) +d;
+                                var f = (d*1000) + (c*100) + (b*10) +a;
+                                if(e + f == 16566){
+                                    document.write('비밀번호 : ' +e);
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body>
+
+</body>
+</html>

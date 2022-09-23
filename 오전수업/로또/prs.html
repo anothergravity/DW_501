@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+var user = parseInt(prompt("1.가위 2.바위 3.보"));
+var com = Math.floor(Math.random() *3)+1;
+
+if( user == com){
+    document.write("비김");
+}else if( (user==1 && com==3) || (user==2 && com==1) || (user==3 && com==2)){
+    document.write("나의 승");
+}else{
+    document.write("나의 패배");
+}
+</script>
+
+</head>
+<body>
+</body>
+</html>

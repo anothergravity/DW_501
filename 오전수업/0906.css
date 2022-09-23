@@ -1,0 +1,61 @@
+/* 0906.css */
+
+
+.logo{
+    margin-top: 50px;
+     display: flex;
+     text-align: center;
+     width:200px;
+     font-size:40px;
+     font-weight: 800px;
+     color: black;
+     font-weight: 300px;
+     justify-content : center;
+}
+ #sort_box{
+     display: flex;
+     width: 700px;
+     height: 40px;
+     text-align: center;
+     font-size: 20px;
+     font-weight: 50px;
+     font-family: 돋움;
+     justify-content : center;
+}
+.start_home{
+    
+    padding-bottom: 50px;
+    font-size:20px;
+    text-align: right;
+    height: 0;
+}
+.id{
+    width: 100%;
+    height: 100%;
+}
+.a{
+    font-size: 16;
+    width: 100px;
+    display: flex;
+    margin-left: 50px;
+}
+.iid{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 100px;
+}
+#main_img{
+    width:100%;
+    height:350px;
+    background:rgb(192,229,224);
+}
+.m_image{
+    width:1000px;
+    height:350px;
+    margin:0 auto;
+}
+.m_image img{
+    width:1000px;
+    height:350px;
+    
+}

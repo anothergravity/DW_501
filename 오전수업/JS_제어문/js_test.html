@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<script type="text/javascript">
+
+num = 100; // num이라는 메모리공간에 100을 저장한다.
+// = -> 대입연산자 (오른쪽에서 왼쪽으로 저장)
+// 변수의 이름은 예약어(window, var , document , location, onload..) 금지
+//      변수이름의 첫글자는 영어로시작 ( 1num 안됨)
+// 변수의 이름은 의미있는 이름으로 ( 사용하는 곳에 맞는 이름 - apple, number, boy1, phone ..)
+
+num2 = num + 10; // num2변수에 num+10을 저장 (100 +10)
+
+num = num +100; // num변수에 100+100저장 , num공간에 200을 덮어쓰기 저장
+
+pi = 3.14; // 실수저장
+name = "이순신"; // 문자열 저장
+// 문자열은 " "로 감싸주어야한다. 또는 ' ' 가능
+// ' ' 문자열은 변경 하지않을 문자열 , " " 문자열은 다른 문자열로 변경 되는경우
+
+city = '대전';
+city = '광주';
+addr = '대전시 중구 선화동';
+
+content ="구매후기 : 교체작업후 확인하니 제품에 하자 가 있다.";
+
+//출력 방법
+
+alert(city); //alert 함수 : 브라우저에 알림 메시지를 띄운다.
+document.write(addr); // html 에 write(쓰기) ,body 태그에 삽입
+document.write("<hr>");
+
+// 입력방법
+name = prompt("이름을 입력하세요");
+document.write( "이름 : " + name );
+
+/* 
+    이름, 직업 , 나이 , 사는곳 입력받아 화면에 출력하시오.
+*/
+name = prompt("직업을 입력하세요");
+document.write( "직업 : " + name );
+
+name = prompt("나이를 입력하세요");
+document.write( "나이 : " + name );
+
+name = prompt("사는곳을 입력하세요");
+document.write( "사는곳 : " + name );
+
+
+
+
+
+// 문자 와 문자열의 차이
+// 문자는 메모리공간 1만큼 사용 , 문자열은 메모리 공간 2 이상 사용
+
+</script>
+
+</head>
+<body>
+    나는 홈페이지입니다.
+</body>
+</html>
