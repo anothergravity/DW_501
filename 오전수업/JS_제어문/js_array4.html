@@ -1,77 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-<script>
-/*   
-   var apple_box=new Array();
-    apple_box.push(68);
-    apple_box.push(65);
-    apple_box.push(61);
-    apple_box.push(69);
-    apple_box.push(66);
 
-    for(var i=0; i<5; i++){
-        document.write(apple_box[i] + "<br>");
-    }
+    <script>
+      //   \t ->tab
+      // lotto.txt 파일 오픈하여  화면에 출력하기
+      // 출력 형태는
+      //  회차    발표일   번호1  번호2   번호3   번호4  번호5   번호6
 
-    // 사과상자에 사과가 평균 몇개 담겨있는지 확인
+      //   파일안에 있는 내용을 위 처럼 구분하여 출력하기
+      //  ul 또는 table 태그 사용 하면 됨
 
-    var total_apple=0;
-    for(var i=0; i<apple_box.length; i++){ //배열의 크기
-        total_apple = total_apple + apple_box[i];
-    }
-    document.write("사과상자 평균 갯수 : " +(total_apple/apple_box.length) );
+      var list = new Array(); //전역
+      window.onload = function () {
+        document.getElementById('docread').addEventListener('change', readFile);
+      };
+      async function readFile(e) {
+        var file = e.target.files[0]; // input 태그에서 선택한 파일 객체
+        if (!file) {
+          return; // 존재하지않으면 종료
+        }
 
-// 각 사과 상자에서 사과상자평균치 와 비교했을때 몇개 차이가 있는지 출력
-// 사과상장평균값은 정수로 구하여 사용
-// 출력 예시 ) 1번사과상자 : 3개
-//              2번사과상자 : 0개
-//             3번사과상자 : -4개
-//             4번사과상자 : 4개
-//             5번사과상자 : 1개
+        var text = await file.text();
+        list = text.split('\n');
+        make_list();
+      }
+      function make_list() {
+        var out = '<table>';
 
-    var avg = parseInt(total_apple / apple_box.length);
+        out += '<tr> <th>회차</th><th>발표일</th><th>번호1</th><th>번호2</th>';
+        out += '<th>번호3</th><th>번호4</th><th>번호5</th><th>번호6</th></tr>';
 
-    for(var i=0; i<apple_box.length; i++){
-        document.write( (i+1) + "번재 사과상자 : " +(apple_box[i] -avg)+'개<br>',
-        );
-    }
-*/
-// 1상자에 들어가는 고구마 수량을 입력하기
-// 고구마 1개의 무게는 (200~400)g
-// 고구마 1상자 kg당 10000원
-// 고구마 수량을 입력하여 result에 1번째 고구마상자 ? kg, 판매가격 ? 원 출력하기
+        for (var i in list) {
+          out += '<tr>';
+          let temp = list[i].split('\t');
+          for (var k in temp) {
+            out += '<td> ' + temp[k] + '</td>';
+          }
+          out += '</tr>';
+        }
+        out += '</table>';
+        document.getElementById('list').innerHTML = out;
+      }
 
-var sweet_quan = new Array();
-var sweet_kg = new Array();
+      function appear() {
+        //당첨번호 시작인덱스 2  list[0].split("\t")[2]
 
-function enroll(){
-    var quan = document.querySelector("#quan");
-    var num = parseInt(quan.value); //입력한 고구마 수량
-    sweet_quan.push(num);
-    let kg = (num*200)/1000; //고구마 한상자 무게(kg)
-    sweet_kg.push(kg);
+        var number = new Array(45);
 
-    var res = document.querySelector("#result");
-    var out ="";
-    for(var i=0; i<sweet_quan.length; i++){
-        out += (i+1)+"번째 고구마상자 "+ sweet_kg[i]+"kg ("+sweet_quan[i]+"개) <br>";
-    }
-    res.innerHTML = out;
-}
+        number.fill(0); //배열 45개 공간 0으로 초기화
+        // number[0] - 1,  number[1] - 2, number[2] -3
+        for (var i in list) {
+          // i 변수에 배열의 인덱스가 차례로 대입
+          var temp = list[i].split('\t');
+          for (var k = 2; k < temp.length; k++) {
+            //(var i in temp+2)
+            number[parseInt(temp[k]) - 1]++;
+          }
+        }
 
-</script>
-</body>
+        var view = '';
+        //  a += 23  ->  a = a+ 23
+        for (var i in number) {
+          view += '<div>' + (parseInt(i) + 1) + '-> ' + number[i] + '개</div>';
+        }
+        document.querySelector('#list').innerHTML = view;
+      }
+
+      function high_low() {
+        var cnt = document.querySelector('#cnt').value;
+        var number = new Array(45);
+        number.fill(0);
+        for (var i = 0; i < cnt; i++) {
+          var temp = list[i].split('\t');
+          for (var k = 2; k < temp.length; k++) {
+            number[parseInt(temp[k]) - 1]++;
+          }
+        }
+        var show = '<h3>0번 출현한 숫자</h3>';
+        for (var i in number) {
+          if (number[i] == 0) {
+            show += '<div>' + (i + 1) + '</div>';
+          }
+        }
+
+        show += '<h3>15번이상 출현한 숫자</h3>';
+        for (var i in number) {
+          if (number[i] >= 15) {
+            show += '<div>' + (parseInt(i) + 1) + '</div>';
+          }
+        }
+        document.querySelector('#list').innerHTML = show;
+      }
+    </script>
+    <style>
+      table tr td {
+        border: 1px solid black;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
     <div>
-        
-        <input type="number" id="quan" placeholder="고구마 수량 입력">
-        <button onclick="enroll()">입력</button>
+      <input type="file" id="docread" />
+      <button type="button" onclick="appear()">출현횟수</button>
     </div>
-    <div id="result"></div>
+    <div>
+      <!-- 가장 최근 당첨 회차 부터  input태그에 입력한 숫자만큼
+중에서 0번 출현한 숫자, 또는 15번 이상 출현한 숫자를 찾아 출력
+예시) input입력숫자 10 
+     1034회 부터 1025회차까지 로또당첨 번호 출현횟수구하기
+     이중에서 0번 나온 숫자또는 15번이상 나온 숫자 찾아 출력
+-->
+      <input type="number" id="cnt" />
+      <button type="button" onclick="high_low()">출력</button>
+    </div>
+
+    <div id="list"></div>
+  </body>
 </html>
